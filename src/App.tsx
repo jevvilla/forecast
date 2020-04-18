@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { Home } from './screens';
+import Root from './navigation';
 
 const App = () => {
   return (
     <>
-      <Home />
+      <Root />
     </>
   );
 };
