@@ -14,7 +14,7 @@ type Props = {
 export const Home: React.FC<Props> = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text>Home</Text>
+      <Text style={styles.title}>19º</Text>
       <Button onPress={() => navigation.push(routes.DETAILS)} title="go to details" />
     </View>
   );

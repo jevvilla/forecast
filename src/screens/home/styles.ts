@@ -6,4 +6,8 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  title: {
+    fontFamily: 'Lato-Bold',
+    fontSize: 110,
+  },
 });
