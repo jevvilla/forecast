@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Button, ActivityIndicator } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import FeatherIcon from 'react-native-vector-icons/Feather';
+import Icon from 'react-native-vector-icons/Feather';
 
 import { DetailsScreenParamList, Prediction } from '../../common/types';
 import { getTimeFromTimestamp } from '../../common/utils';
@@ -37,7 +37,7 @@ export const Details: React.FC<Props> = ({ navigation }) => {
     <View style={styles.container}>
       <View style={styles.main}>
         <Text style={styles.title}>{Math.round(prediction.main.temp)}º</Text>
-        <FeatherIcon name="sun" size={110} color="rgb(236, 177, 63)" />
+        <Icon name="sun" size={110} color="rgb(236, 177, 63)" />
       </View>
       <View style={styles.mainTextContainer}>
         <View style={styles.minmax}>
@@ -52,23 +52,23 @@ export const Details: React.FC<Props> = ({ navigation }) => {
       </View>
       <View style={styles.infoContainer}>
         <View style={styles.infoBox}>
-          <FeatherIcon name="sunrise" size={35} color="rgb(63,138,247)" />
+          <Icon name="sunrise" size={35} color="rgb(63,138,247)" />
           <Text style={styles.infoLabel}>{getTimeFromTimestamp(prediction.sys.sunrise)}</Text>
         </View>
         <View style={styles.infoBox}>
-          <FeatherIcon name="sunset" size={35} color="rgb(63,138,247)" />
+          <Icon name="sunset" size={35} color="rgb(63,138,247)" />
           <Text style={styles.infoLabel}>{getTimeFromTimestamp(prediction.sys.sunset)}</Text>
         </View>
         <View style={styles.infoBox}>
-          <FeatherIcon name="wind" size={35} color="rgb(63,138,247)" />
+          <Icon name="wind" size={35} color="rgb(63,138,247)" />
           <Text style={styles.infoLabel}>{prediction.wind.speed} km/h</Text>
         </View>
         <View style={styles.infoBox}>
-          <FeatherIcon name="cloud" size={35} color="rgb(63,138,247)" />
+          <Icon name="cloud" size={35} color="rgb(63,138,247)" />
           <Text style={styles.infoLabel}>{prediction.clouds.all}%</Text>
         </View>
         <View style={styles.infoBox}>
-          <FeatherIcon name="umbrella" size={35} color="rgb(63,138,247)" />
+          <Icon name="umbrella" size={35} color="rgb(63,138,247)" />
           <Text style={styles.infoLabel}>{prediction.main.humidity}%</Text>
         </View>
       </View>
