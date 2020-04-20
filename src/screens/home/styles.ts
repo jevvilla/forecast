@@ -5,4 +5,11 @@ export default StyleSheet.create({
     flex: 1,
     padding: 16,
   },
+  searchContainer: {
+    flexDirection: 'row',
+  },
+  searchText: {
+    width: '80%',
+    backgroundColor: 'white',
+  },
 });
