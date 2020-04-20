@@ -50,6 +50,7 @@ export type Prediction = {
   id: number;
   name: string;
   cod: number;
+  message?: string;
 };
 
 export type HomeScreenParamList = {
@@ -57,5 +58,6 @@ export type HomeScreenParamList = {
 };
 
 export type DetailsScreenParamList = {
-  Home: Object;
+  Home: undefined;
+  prediction: Prediction;
 };

@@ -1,39 +1,18 @@
 import React from 'react';
-import { View, Text, Button, ActivityIndicator } from 'react-native';
-import { StackNavigationProp } from '@react-navigation/stack';
+import { View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
-import { DetailsScreenParamList, Prediction } from '../../common/types';
 import { getTimeFromTimestamp } from '../../common/utils';
-import { getPredictions } from '../../api';
 import { Map } from '../../components';
-import * as routes from '../../navigation/routes';
 
 import styles from './styles';
 
 type Props = {
-  navigation: StackNavigationProp<DetailsScreenParamList>;
+  route: any;
 };
 
-export const Details: React.FC<Props> = ({ navigation }) => {
-  const [prediction, setPrediction] = React.useState<Prediction>();
-
-  React.useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      const data = await getPredictions();
-      setPrediction(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  if (!prediction) {
-    return <ActivityIndicator size="small" color="rgb(63,138,247)" />;
-  }
+export const Details: React.FC<Props> = ({ route }) => {
+  const { prediction } = route.params;
 
   return (
     <View style={styles.container}>
@@ -75,7 +54,6 @@ export const Details: React.FC<Props> = ({ navigation }) => {
         </View>
       </View>
       <Map location={prediction.coord} />
-      <Button onPress={() => navigation.push(routes.HOME)} title="go to Home" />
     </View>
   );
 };
