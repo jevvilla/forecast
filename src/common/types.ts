@@ -1,8 +1,3 @@
-type Coordinates = {
-  lon: number;
-  lat: number;
-};
-
 type Weather = {
   id: number;
   main: string;
@@ -36,8 +31,13 @@ type Sys = {
   sunset: number;
 };
 
+export type Coordinates = {
+  lon: number;
+  lat: number;
+};
+
 export type Prediction = {
-  coordinates: Coordinates;
+  coord: Coordinates;
   weather: Weather[];
   base: string;
   main: Main;
