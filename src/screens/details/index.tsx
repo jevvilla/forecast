@@ -5,8 +5,9 @@ import Icon from 'react-native-vector-icons/Feather';
 
 import { DetailsScreenParamList, Prediction } from '../../common/types';
 import { getTimeFromTimestamp } from '../../common/utils';
-import * as routes from '../../navigation/routes';
 import { getPredictions } from '../../api';
+import { Map } from '../../components';
+import * as routes from '../../navigation/routes';
 
 import styles from './styles';
 
@@ -33,6 +34,7 @@ export const Details: React.FC<Props> = ({ navigation }) => {
   if (!prediction) {
     return <ActivityIndicator size="small" color="rgb(63,138,247)" />;
   }
+
   return (
     <View style={styles.container}>
       <View style={styles.main}>
@@ -72,6 +74,7 @@ export const Details: React.FC<Props> = ({ navigation }) => {
           <Text style={styles.infoLabel}>{prediction.main.humidity}%</Text>
         </View>
       </View>
+      <Map location={prediction.coord} />
       <Button onPress={() => navigation.push(routes.HOME)} title="go to Home" />
     </View>
   );
