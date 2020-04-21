@@ -51,10 +51,24 @@ export const useAsyncStorage = () => {
     }
   };
 
+  const removePredictionFromStorage = async (prediction: Prediction) => {
+    const existingPredictions: Prediction[] | undefined = data;
+
+    if (existingPredictions) {
+      try {
+        const result = existingPredictions.filter((item) => item.name !== prediction.name);
+        await AsyncStorage.setItem('@predictions', JSON.stringify(result));
+        await getPredictionsFromStorage();
+      } catch (err) {
+        console.log('Error saving data to AsyncStorage, ', err);
+      }
+    }
+  };
+
   const deleteAll = async () => {
     await AsyncStorage.clear();
     setData([]);
   };
 
-  return { data, savePredictionToStorage, deleteAll };
+  return { data, savePredictionToStorage, deleteAll, removePredictionFromStorage };
 };

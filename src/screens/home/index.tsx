@@ -20,7 +20,12 @@ export const Home: React.FC<Props> = ({ navigation }) => {
   const [prediction, setPrediction] = React.useState<Prediction | undefined>();
   const [fetching, setFetching] = React.useState<boolean>();
   const [error, setError] = React.useState();
-  const { data, savePredictionToStorage, deleteAll } = useAsyncStorage();
+  const {
+    data,
+    savePredictionToStorage,
+    deleteAll,
+    removePredictionFromStorage,
+  } = useAsyncStorage();
 
   const handleTextInput = (term: string) => setSearchTerm(term);
 
@@ -94,6 +99,8 @@ export const Home: React.FC<Props> = ({ navigation }) => {
             title={item.name}
             subtitle={`${Math.round(item.main.temp_max)}º / ${Math.round(item.main.temp_min)}º`}
             onCardPress={() => navigation.navigate(routes.DETAILS, { prediction: item })}
+            onCardDelete={() => removePredictionFromStorage(item)}
+            removable
           />
         ))}
       </View>
