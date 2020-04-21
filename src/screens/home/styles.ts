@@ -17,4 +17,14 @@ export default StyleSheet.create({
     fontSize: 16,
     height: 50,
   },
+  deleteAllTouchable: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 12,
+  },
+  deleteTitle: {
+    marginRight: 8,
+    fontFamily: 'Lato-Bold',
+    fontSize: 18,
+  },
 });

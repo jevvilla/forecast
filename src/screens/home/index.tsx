@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, TextInput, Text, ActivityIndicator, Button } from 'react-native';
+import { View, TextInput, Text, ActivityIndicator, TouchableOpacity } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
+import Icon from 'react-native-vector-icons/Feather';
 
 import { HomeScreenParamList, Prediction } from '../../common/types';
 import { IconButton, Card } from '../../components';
@@ -96,7 +97,12 @@ export const Home: React.FC<Props> = ({ navigation }) => {
           />
         ))}
       </View>
-      <Button title="delete all" onPress={() => deleteAll()} />
+      {data && (
+        <TouchableOpacity style={styles.deleteAllTouchable} onPress={() => deleteAll()}>
+          <Text style={styles.deleteTitle}>delete all</Text>
+          <Icon name="trash-2" color="red" size={20} />
+        </TouchableOpacity>
+      )}
     </View>
   );
 };
