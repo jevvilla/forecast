@@ -7,9 +7,14 @@ export default StyleSheet.create({
   },
   searchContainer: {
     flexDirection: 'row',
+    marginBottom: 16,
+    backgroundColor: 'white',
+    borderRadius: 4,
   },
   searchText: {
-    width: '80%',
-    backgroundColor: 'white',
+    flex: 1,
+    paddingHorizontal: 10,
+    fontSize: 16,
+    height: 50,
   },
 });
